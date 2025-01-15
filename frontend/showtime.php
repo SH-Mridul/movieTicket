@@ -65,6 +65,7 @@
                          // Fetch movie showtimes
                         $movieId = $row['id'];
                         $movie_name = $row['name'];
+                        $price = $row['ticket_price'];
                         $movie_date_time_list = "SELECT id, show_date_time FROM movie_show_date_time 
                                                     WHERE status = 1 AND movie_id = $movieId";
 
@@ -79,7 +80,7 @@
                             // Format the showtime to human-readable format
                             $datetime = new DateTime($showtime['show_date_time']);
                             $formattedDateTime = $datetime->format('l, F j, Y \a\t g:i A'); // Example: Monday, January 1, 2025 at 5:00 PM
-                            echo  $formattedDateTime." <a href='new_booking.php?movie_name=$movie_name&&show_time=$formattedDateTime' class='book-button'>Book Now</a><br />";
+                            echo  $formattedDateTime." <a href='new_booking.php?movie_name=$movie_name&&show_time=$formattedDateTime&ticket_price=$price' class='book-button'>Book Now</a><br />";
                         }
                                    
                                

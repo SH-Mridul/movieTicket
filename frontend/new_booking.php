@@ -3,13 +3,14 @@
 include('database_connection.php');
 require 'login_check.php';
 
-if (!isset($_GET['movie_name']) && !isset($_GET['show_time'])){
+if (!isset($_GET['movie_name']) && !isset($_GET['show_time']) && !isset($_GET['ticket_price'])){
     header("Location: index.php");
 }
 
 // Fetch the movie name and show time from a dropdown or input (hardcoded here for demo)
 $selectedMovie = $_GET['movie_name']; // Replace with $_POST['movie_name'] for dynamic input
 $showTime = $_GET['show_time']; // Replace with $_POST['show_time'] for dynamic input
+$price = $_GET['ticket_price'];
 
 // Fetch all seats from the seats table
 $seatsQuery = "SELECT * FROM seats";
@@ -129,11 +130,12 @@ while ($row = mysqli_fetch_assoc($bookedSeatsResult)) {
             ?>
         </div>
 
-        <p class="mt-4">You have selected <span id="seatCount">0</span> seat(s).</p>
+        <p class="mt-4">You have selected <span id="seatCount">0</span> seat(s).Bill is <span id="totalAmount">0</span></p>
         <div class="card bg-dark text-white p-4 mt-4">
             <h4>Billing Information</h4>
             <form action="process_booking.php" method="POST" class="p-3 bg-dark text-white rounded">
                 <input type="hidden" name="movie_name" value="<?= $selectedMovie ?>">
+                <input type="hidden" name="ticket_price" id="ticket_price_input" value="<?= $price ?>">
                 <input type="hidden" name="show_time" value="<?= $showTime ?>">
                 <input type="hidden" id="selectedSeats" name="selected_seats">
 
@@ -161,6 +163,9 @@ while ($row = mysqli_fetch_assoc($bookedSeatsResult)) {
             }
             document.getElementById('seatCount').textContent = selectedSeats.length;
             document.getElementById('selectedSeats').value = selectedSeats.join(',');
+            let inputValue = document.getElementById('ticket_price_input').value;
+            let totalBill = Number(inputValue)*selectedSeats.length;
+            document.getElementById('totalAmount').textContent = totalBill;
         }
     </script>
 </body>

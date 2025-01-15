@@ -55,8 +55,8 @@
                             </a>
                             <div class="collapse" id="set" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="add_new_seat.php">Add New Sit</a>
-                                    <a class="nav-link" href="seat_list.php">Sit List</a>
+                                    <a class="nav-link" href="add_new_seat.php">Add New Seat</a>
+                                    <a class="nav-link" href="seat_list.php">Seat List</a>
                                 </nav>
                             </div>
 
