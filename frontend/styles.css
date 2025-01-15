@@ -1,0 +1,180 @@
+/* Updated CSS */
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: #fff;
+  background-color: #3e004d;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: "Lato", sans-serif;
+  margin: 0;
+}
+
+header {
+  background-color: #29003b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  width: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #ffd700;
+}
+
+.movie-container {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.movie-container select {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px 15px;
+}
+
+.container {
+  perspective: 1000px;
+  margin: 30px auto;
+  text-align: center;
+}
+
+.seat {
+  background-color: #444451;
+  height: 30px;
+  width: 30px;
+  margin: 5px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.seat.selected {
+  background-color: green;
+}
+
+.seat.sold {
+  background-color: #fff;
+}
+
+.seat:hover:not(.sold) {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.showcase {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  gap: 20px;
+}
+
+.showcase li {
+  display: flex;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.screen {
+  background-color: #fff;
+  height: 80px;
+  width: 70%;
+  margin: 50px;
+  transform: rotateX(-30deg);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.7);
+}
+
+p.text {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.form-container,
+.bill-container {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  width: 90%;
+}
+
+button {
+  background-color: #29003b;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #3e004d;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+  }
+
+  .seat {
+    height: 20px;
+    width: 25px;
+  }
+
+  .screen {
+    height: 60px;
+  }
+
+  p.text {
+    font-size: 16px;
+  }
+}
+
+#movie{
+  background-color: #000;
+  color: white;
+}
